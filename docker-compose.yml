@@ -18,6 +18,8 @@ services:
       - db-variables.env
     volumes:
       - "/location/to/store/database:/var/lib/mysql"
+    environment:
+      - MYSQL_ROOT_PASSWORD=<Pick DB root password>
     expose:
       - "3306"
     networks:
