@@ -1,0 +1,27 @@
+version: "3.3"
+services:
+  denyhosts-sync:
+      container_name: "DenyHosts_Sync"
+      restart: unless-stopped
+      image: adriel/denyhosts-sync
+      env_file:
+        - db-variables.env
+      ports:
+        - "9911:9911"
+      networks:
+        - denyhosts
+  database:
+    container_name: MariaDB
+    restart: unless-stopped
+    image: mariadb:latest
+    env_file:
+      - db-variables.env
+    volumes:
+      - "/location/to/store/database:/var/lib/mysql"
+    expose:
+      - "3306"
+    networks:
+      - denyhosts
+networks:
+  denyhosts:
+    driver: "bridge"
