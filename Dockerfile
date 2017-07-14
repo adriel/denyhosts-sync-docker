@@ -15,7 +15,7 @@ RUN apt-get update \
 
 RUN ln -sf /dev/stdout /var/log/denyhosts-server/denyhosts-server.log
 
-HEALTHCHECK --interval=5m --timeout=3s --start-period=5s \
+HEALTHCHECK --interval=5m --timeout=3s \
   CMD curl -f http://localhost:9911/ || exit 1
 
 COPY run.sh /run.sh
