@@ -9,7 +9,7 @@ RUN apt update \
  && echo "deb http://www.vanbest.org/reprepro/ unstable main contrib non-free" >> /etc/apt/sources.list \
  && curl http://www.vanbest.org/janpascal/debian-archive-key.asc | apt-key add - \
  && apt update \
- && apt -qy --no-install-recommends --no-install-suggests install denyhosts-server \
+ && apt -qy --no-install-recommends --no-install-suggests install denyhosts-server
 
 RUN ln -sf /dev/stdout /var/log/denyhosts-server/denyhosts-server.log
 
